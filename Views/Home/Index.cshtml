@@ -1,0 +1,27 @@
+@{
+    ViewBag.title = "Start";
+}
+@model IEnumerable<Project>
+
+<div class="text-center m-5 card bg-primary">
+    <h1 class="m-2 text-white">Projekte</h1>
+</div>
+<div class="text-center m-5 card bg-primary">
+    <a asp-action="Create" class="h1 text-white text-decoration-none m-2 d-inline-block">Create Post</a>
+</div>
+
+@foreach (var project in Model)
+{
+    <div class="card m-5">
+        <a asp-action="Details" asp-route-id="@project.Id" class="stretched-link"></a>
+        <div class="card-header text-center">
+            @project.title
+        </div>
+        <div class="card-body text-center">
+            @project.description
+        </div>
+        <div class="card-footer text-end">
+            @project.Customer?.Company | @project.Start | @project.End
+        </div>
+    </div>
+}

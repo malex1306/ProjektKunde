@@ -1,0 +1,20 @@
+@{
+    ViewBag.Title = "Details";
+}
+
+@model Project
+
+<div class="text-center">
+    <h1>@Model.title</h1>
+    <h5>Von @Model.Customer?.FullCompany</h5>
+    <h5>Geplanter Start @Model.Start</h5>
+    <h5>Geplantes Ende @Model.End</h5>
+</div>
+<div>
+    <p class="text-center" style="white-space: pre-wrap">@Model.description</p>
+</div>
+<div class="text-center mt-4">
+    <a asp-action="Index" class="btn btn-secondary">Zurück</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Bearbeiten</a>
+    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Löschen</a>
+</div>

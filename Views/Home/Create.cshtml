@@ -1,0 +1,43 @@
+@{
+    ViewBag.Title = "Create";
+    Layout = "_Layout";
+}
+@model Project
+
+<h1 class="text-center">Neues Projekt</h1>
+<form asp-action="Create" method="post">
+    <div class="mb-2 text-center">
+        <label asp-for="title" class="form-label text-center">Titel</label>
+        <input asp-for="title" class="form-control text-center"/>
+        <span asp-validation-for="title"></span>
+    </div>
+    <div class="mb-2 text-center">
+        <label asp-for="description" class="form-label text-center">Beschreibung</label>
+        <textarea asp-for="description" class="form-control text-center" rows="10"></textarea>
+        <span asp-validation-for="description"></span>
+    </div>
+    <div class="row mb-2 text-center">
+        <div class="col-md-6">
+            <label asp-for="Start" class="form-label text-center">Startdatum</label>
+            <input asp-for="Start" class="form-control text-center" type="datetime-local" />
+            <span asp-validation-for="Start" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="End" class="form-label text-center">Enddatum</label>
+            <input asp-for="End" class="form-control text-center" type="datetime-local" />
+            <span asp-validation-for="End" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="mb-2 text-center">
+        <label asp-for="CustomerId" class="form-label text-center">Kunde</label>
+        <select asp-for="CustomerId" class="form-select text-center" asp-items="@ViewBag.Customer">
+            <option value="&lt;Kunde auswählen&gt;"></option>
+            <span asp-validation-for="CustomerId"></span>
+        </select>
+    </div>
+    <div class="d-flex justify-content-between">
+        <a asp-action="Index" class="btn btn-primary">Zurück</a>
+        <button type="submit" class="btn btn-success">Speichern</button>
+    </div>
+</form>

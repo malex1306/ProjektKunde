@@ -1,0 +1,14 @@
+@{
+    ViewBag.Title = "Löschen";
+}
+
+@model Project
+
+<h1 class="text-center text-danger">Projekt löschen</h1>
+<p class="text-center">Möchtest du das Projekt <strong>@Model.title</strong> wirklich löschen?</p>
+
+<form asp-action="Delete" method="post" class="text-center">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Löschen</button>
+    <a asp-action="Index" class="btn btn-secondary">Abbrechen</a>
+</form>
